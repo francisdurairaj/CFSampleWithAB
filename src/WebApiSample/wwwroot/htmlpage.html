@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Api with XML</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <style>
+        #views
+        {
+            font: 13px Arial;
+            width: 500px;
+            text-align: center;
+            overflow: hidden;
+        }
+        #views div
+        {
+            width: auto;
+            text-align: left;
+            margin: 1px;
+            padding: 2px 5px;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="views">
+    </div>
+    <!--    firstname:<input id="firstname" type="text" name="firstname" /><br />
+    lastname:<input id="lastname" type="text" name="lastname" /><br />
+    email:<input id="email" type="text" name="email" />-->
+    <input id="Button1" type="button" value="Submit" />
+    </form>
+</body>
+<script>
+
+    function getData() {
+        
+        $('#views').empty();
+        $.ajax({
+            type: 'GET',
+            url: '../wwwroot/data/Test.xml',
+            dataType: 'xml',
+            async: true,
+            cache: false,
+            success: function (xml) {
+
+                $(xml).find('List').each(function () {
+
+                    $('#views').append(
+                        '<div>' +
+                            '<div><b>Make: </b>' +
+                                $(this).find('Make').text() + '</div> ' +
+                            '<div><b>Model: </b>' +
+                                $(this).find('Model').text() + '</div> ' +
+                            '<div><b>Views: </b>' +
+                                $(this).find('Views').text() + '</div> ' +
+                        '</div>');
+                });
+            }
+        });
+    }
+
+    $(document).ready(function () {
+
+        getData();
+
+    });
+
+
+    $("#Button1").click(function (event) {
+
+
+        var List = {};
+        List.Make = $("#firstname").val();
+        List.Model = $("#lastname").val();
+        List.Views = $("#email").val();
+
+        event.preventDefault();
+        $.ajax({
+            type: "POST",
+            contentType: "application/json;charset=utf-8",
+            data: { List: JSON.stringify(List) },
+            dataType: "json",
+            url: "http://mywebapi.cfapps.io/api/Test/AddXmltoTest",
+            success: function (msg) {
+                // alert("success" + msg);
+                getData();
+            },
+            error: function (x, e) {
+                getData();
+                /*  alert('Failed');
+                alert(x.responseText);
+                alert(x.status);*/
+            }
+        });
+        // location.reload();
+
+
+    });
+</script>
+</html>
