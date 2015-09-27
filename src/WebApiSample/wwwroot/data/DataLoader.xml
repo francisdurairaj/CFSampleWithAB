@@ -5,20 +5,20 @@
     <Model val="I5">I Phone 5</Model>
     <Color val="BK">Black</Color>
     <Specs>2 GB RAM</Specs>
-    <ImgPath>../../Images/I6_Black.jpeg</ImgPath>
+    <ImgPath>../../images/I6_Black.jpeg</ImgPath>
   </List>
   <List>
     <Make val="Apple">Apple</Make>
     <Model val="I5">I Phone 5</Model>
     <Color val="GL">Gold</Color>
     <Specs>2 GB RAM</Specs>
-    <ImgPath>../../Images/I6_Gold.jpg</ImgPath>
+    <ImgPath>../../images/I6_Gold.jpg</ImgPath>
   </List>
   <List>
     <Make val="Apple">Apple</Make>
     <Model val="I5">I Phone 5</Model>
     <Color val="WT">White</Color>
     <Specs>2 GB RAM</Specs>
-    <ImgPath>../../Images/I6_White.jpeg</ImgPath>
+    <ImgPath>../../images/I6_White.jpeg</ImgPath>
   </List>
 </Library>
