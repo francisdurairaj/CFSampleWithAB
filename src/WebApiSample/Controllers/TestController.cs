@@ -4,20 +4,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
-using MvcApplication1.Models;
+//using MvcApplication1.Models;
 using System.Xml.Linq;
 using System.IO;
 
-namespace MvcApplication1.Controllers
+namespace WebApiSample.Controllers
 {
     public class TestController : Controller
     {
         //
         // GET: /Test/
 
+
+
         public string AddXml(string MakeName, string ModelName, string NoofViews)
         {
-            string filepath = Server.MapPath("~/Views/Metrics.xml");
+            string filepath = Server.MapPath("~/wwwroot/data/Test.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             XmlNode root = doc.DocumentElement;
@@ -35,10 +37,11 @@ namespace MvcApplication1.Controllers
         }
 
         [HttpPost]
-        public string AddXmltoTest(List lst)
+        //public string AddXmltoTest(List lst)
+        public string AddXmltoTest()
         {
 
-            string filepath2 = Server.MapPath("~/Views/Test.xml");
+            string filepath2 = Server.MapPath("~/wwwroot/data/Test.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath2);
             XmlNode root = doc.DocumentElement;
