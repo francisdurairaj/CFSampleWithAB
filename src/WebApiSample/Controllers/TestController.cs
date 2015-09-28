@@ -18,7 +18,7 @@ namespace WebApiSample.Controllers
 
         public string AddXml(string MakeName, string ModelName, string NoofViews)
         {
-            string filepath = Server.MapPath("~/wwwroot/data/Test.xml");
+            string filepath = "";// Server.MapPath("~/wwwroot/data/Test.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath);
             XmlNode root = doc.DocumentElement;
@@ -40,7 +40,7 @@ namespace WebApiSample.Controllers
         public string AddXmltoTest()
         {
 
-            string filepath2 = Server.MapPath("~/wwwroot/data/Test.xml");
+            string filepath2 = "";//Server.MapPath("~/wwwroot/data/Test.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(filepath2);
             XmlNode root = doc.DocumentElement;

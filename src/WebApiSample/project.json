@@ -1,31 +1,31 @@
 {
-    "webroot": "wwwroot",
+  "webroot": "wwwroot",
 
 
-    "dependencies": {
-        "Microsoft.AspNet.Mvc": "6.0.0-beta7",
-        "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta7",
-        "Microsoft.AspNet.StaticFiles": "1.0.0-beta7"
-    },
+  "dependencies": {
+    "Microsoft.AspNet.Mvc": "6.0.0-beta7",
+    "Microsoft.AspNet.Server.Kestrel": "1.0.0-beta7",
+    "Microsoft.AspNet.StaticFiles": "1.0.0-beta7"
+  },
 
-    "commands": {
-        "kestrel": "Microsoft.AspNet.Hosting --config hosting.ini"
-    },
+  "commands": {
+    "kestrel": "Microsoft.AspNet.Hosting --config hosting.ini"
+  },
 
-    "frameworks": {
-        "dnx451": { }
-    },
+  "frameworks": {
+    "dnx451": { }
+  },
 
-    "exclude": [
-        "wwwroot",
-        "node_modules",
-        "bower_components"
-    ],
-    "publishExclude": [
-        "node_modules",
-        "bower_components",
-        "**.xproj",
-        "**.user",
-        "**.vspscc"
-    ]
+  "exclude": [
+    "wwwroot",
+    "node_modules",
+    "bower_components"
+  ],
+  "publishExclude": [
+    "node_modules",
+    "bower_components",
+    "**.xproj",
+    "**.user",
+    "**.vspscc"
+  ]
 }
