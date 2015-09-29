@@ -17,4 +17,3 @@ deploy:
    api: https://api.run.pivotal.io
    organization: Techavengers
    space: development
-
