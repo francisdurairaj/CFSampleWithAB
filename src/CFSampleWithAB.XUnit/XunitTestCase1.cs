@@ -70,7 +70,7 @@ namespace CFSampleWithAB.XUnit
         {           
             ValuesController obj = new ValuesController();
             InitData.lstProducts = null;
-            Assert.NotNull(obj.GetProducts());
+            Assert.Null(obj.GetProducts());
         }
         [Fact]
         public void getRegionAds()
