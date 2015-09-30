@@ -94,47 +94,55 @@
         </div>
         <div id="views" class="container">
         </div>
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <div id="dvProds" class="panel panel-primary">
-                    </div>
-                </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Model Details
             </div>
-        </div>
 
+        </div>
         <div class="row">
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img class="thbImg" src="images/I6_Black.jpeg" alt="">
-                    <div class="caption">
-                        <h3>iPhone 6s</h3>
-                        <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img class="thbImg" src="images/I6_White.jpeg" alt="">
-                    <div class="caption">
-                        <h3>iPhone 6s</h3>
-                        <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail">
-                    <img class="thbImg" src="images/I6_Gold.jpg" alt="">
-                    <div class="caption">
-                        <h3>iPhone 6s</h3>
-                        <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
+            <div class="panel panel-primary">
+                <div class="panel-heading">Model</div>
+                <div class="panel-body">
+                    <div class="thumbnail">
+                        <div id="dvProds">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="thbImg" src="images/I6_Black.jpeg" alt="">
+                        <div class="caption">
+                            <h3>iPhone 6s</h3>
+                            <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="thbImg" src="images/I6_White.jpeg" alt="">
+                        <div class="caption">
+                            <h3>iPhone 6s</h3>
+                            <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="thbImg" src="images/I6_Gold.jpg" alt="">
+                        <div class="caption">
+                            <h3>iPhone 6s</h3>
+                            <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </form>
 </body>
 <script type="text/javascript">
@@ -168,8 +176,12 @@
 
             $("#dvProds").append(
                 //"<tr>" +
-               "<div class='floatleft box'><img class='image' src='" + msg[i].ImgPath + "' data-view-name='" + msg[i].ID + "'></img><br/>"
-               + "<a data-view-name='" + msg[i].ID + "'>Click Here for Details: <br/>" + details + "</a></div>"
+               "<div class='floatleft box'><img class='image' src='" + msg[i].ImgPath + "' data-view-name='" + msg[i].ID + "'></img>"
+               + "<div data-view-name='" + msg[i].ID + "'><div class='caption'><h3>iPhone 6s</h3>"+
+                            
+                            "<p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>"+
+                            "<p><a href='#' class='btn btn-primary' role='button'>Buy</a> <a href='#' class='btn btn-default' role='button'>Details</a></p>"+
+                        "</div> <br/>" + details + "</div></div>"
               // "<tr><td>" + details + "</td></tr>"+
                //</tr>"
              );

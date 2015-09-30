@@ -8,7 +8,6 @@
     <style>
         #views {
             font: 13px Arial;
-            
             text-align: center;
             overflow: hidden;
         }
@@ -20,6 +19,37 @@
                 padding: 2px 5px;
                 letter-spacing: 1px;
             }
+
+        div.floatleft {
+            float: left;
+        }
+
+        img.image {
+            height: 140px;
+            width: 220px;
+        }
+
+        .box {
+            border: 1px solid #808080;
+            padding: 5px 5px;
+            margin: 5px 5px;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        #dvProds {
+            align-content: center;
+            margin-left: 280px;
+        }
+
+        img.thbImg {
+            height: 220px;
+            width: 242px;
+        }
     </style>
 
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
@@ -55,7 +85,43 @@
                 <li class='last'><a href='#'><span>Contact</span></a></li>
             </ul>
         </div>
-        <table id="tblActiveAdds"></table>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+              Vendor Page
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Twitter</div>
+                <div class="panel-body">
+                    <img src="images/twitter.jpg"  />
+
+                    <div id="tblActiveAdds"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Facebook</div>
+                <div class="panel-body">
+                    <img src="images/Facebook.jpg" />
+
+                    <div id="tblActiveAddsFacebook"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">You Tube</div>
+                <div class="panel-body">
+                    <img src="images/Youtube.jpg" />
+
+                    <div id="tblActiveAddsYouTube"></div>
+                </div>
+            </div>
+        </div>
+
     </form>
 </body>
 <script>
@@ -83,9 +149,38 @@
             // var details = msg[i].Make + "<br/>" + msg[i].Model + "<br/>" + msg[i].Color + "<br/>" + msg[i].Specs + "<br/>";
             var details = msg[i].ID + "--" + msg[i].AgeGroup + "--" + msg[i].Gender + "--" + msg[i].Region;
 
+            //$("#tblActiveAdds").append(
+            //    "<tr>" +
+            //   " <td><img class='img' src='" + msg[i].ImageURL + "' data-view-name='" + details + "'></img></td></tr>"
+
+
+            // );
+
             $("#tblActiveAdds").append(
-                "<tr>" +
-               " <td><img class='img' src='" + msg[i].ImageURL + "' data-view-name='" + details + "'></img></td></tr>"
+               //"<tr>" +
+              "<div class='floatleft box'><img class='img' src='" + msg[i].ImageURL + "' data-view-name='" + details + "'></img><br/>Click Here for Details: <br/><br/><br/><br/></a></div>"
+             // "<tr><td>" + details + "</td></tr>"+
+              //</tr>"
+            );
+        });
+        
+        $.each(msg, function (i, obj) {
+            // var details = msg[i].Make + "<br/>" + msg[i].Model + "<br/>" + msg[i].Color + "<br/>" + msg[i].Specs + "<br/>";
+            var details = msg[i].ID + "--" + msg[i].AgeGroup + "--" + msg[i].Gender + "--" + msg[i].Region;
+
+            $("#tblActiveAddsFacebook").append(
+                 "<div class='floatleft box'><img class='img' src='" + msg[i].ImageURL + "' data-view-name='" + details + "'></img><br/>Click Here for Details: <br/><br/></a></div>"
+
+
+             );
+        });
+        
+        $.each(msg, function (i, obj) {
+            // var details = msg[i].Make + "<br/>" + msg[i].Model + "<br/>" + msg[i].Color + "<br/>" + msg[i].Specs + "<br/>";
+            var details = msg[i].ID + "--" + msg[i].AgeGroup + "--" + msg[i].Gender + "--" + msg[i].Region;
+
+            $("#tblActiveAddsYouTube").append(
+                 "<div class='floatleft box'><img class='img' src='" + msg[i].ImageURL + "' data-view-name='" + details + "'></img><br/>Click Here for Details: <br/></a></div>"
 
 
              );

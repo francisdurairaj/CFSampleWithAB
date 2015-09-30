@@ -77,7 +77,7 @@ namespace WebApiSample.InitializeData
             objAdd.Region = "AL";
             objAdd.RegionName = "Alabama";
             objAdd.URL = "Product.html&AgeGroup=" + objAdd.AgeGroup + "&Gender=" + objAdd.Gender + "&Region=" + objAdd.Region + "&Device=" + objAdd.Device + "&Browser=" + objAdd.Browser;
-            objAdd.ImageURL = "Images/16_Black.jpeg";
+            objAdd.ImageURL = "images/i6_Black.jpeg";
             lstAdds.Add(objAdd);
 
 
@@ -91,7 +91,7 @@ namespace WebApiSample.InitializeData
             objAdd2.Region = "AR";
             objAdd2.RegionName = "Arkansas";
             objAdd2.URL = "Product.html&AgeGroup=" + objAdd2.AgeGroup + "&Gender=" + objAdd2.Gender + "&Region=" + objAdd2.Region + "&Device=" + objAdd2.Device + "&Browser=" + objAdd2.Browser;
-            objAdd2.ImageURL = "Images/16_Black.jpeg";
+            objAdd2.ImageURL = "images/i6_Black.jpeg";
             lstAdds.Add(objAdd2);
 
 
@@ -105,7 +105,7 @@ namespace WebApiSample.InitializeData
             objAdd3.Region = "CT";
             objAdd3.RegionName = "Connecticut";
             objAdd3.URL = "Product.html&AgeGroup=" + objAdd3.AgeGroup + "&Gender=" + objAdd3.Gender + "&Region=" + objAdd3.Region + "&Device=" + objAdd3.Device + "&Browser=" + objAdd3.Browser;
-            objAdd3.ImageURL = "Images/16_Black.jpeg";
+            objAdd3.ImageURL = "images/i6_Black.jpeg";
             lstAdds.Add(objAdd3);
 
 
@@ -119,7 +119,7 @@ namespace WebApiSample.InitializeData
             objAdd4.Region = "IN";
             objAdd4.RegionName = "Indiana";
             objAdd4.URL = "Product.html&AgeGroup=" + objAdd4.AgeGroup + "&Gender=" + objAdd4.Gender + "&Region=" + objAdd4.Region + "&Device=" + objAdd4.Device + "&Browser=" + objAdd4.Browser;
-            objAdd4.ImageURL = "Images/16_Black.jpeg";
+            objAdd4.ImageURL = "images/i6_Black.jpeg";
             lstAdds.Add(objAdd4);
 
             CreateAdd objAdd5 = new CreateAdd();
@@ -132,7 +132,7 @@ namespace WebApiSample.InitializeData
             objAdd5.Region = "KS";
             objAdd5.RegionName = "Kansas";
             objAdd5.URL = "Product.html&AgeGroup=" + objAdd5.AgeGroup + "&Gender=" + objAdd5.Gender + "&Region=" + objAdd5.Region + "&Device=" + objAdd5.Device + "&Browser=" + objAdd5.Browser;
-            objAdd5.ImageURL = "Images/16_Black.jpeg";
+            objAdd5.ImageURL = "images/i6_Black.jpeg";
             lstAdds.Add(objAdd5);
             return lstAdds;
         }
