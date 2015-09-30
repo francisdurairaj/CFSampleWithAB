@@ -7,8 +7,6 @@ install:
   - dnu restore
 script:
   - cd src/WebApiSample/  && dnu build
-notifications:
-  slack: brickpile:EXJMvnNmca5nvL24ShjG9M1i
 deploy:
    edge: true
    provider: cloudfoundry
