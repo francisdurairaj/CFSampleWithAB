@@ -50,7 +50,7 @@ namespace WebApiSample.Controllers
         {
               try
             {
-                var id = Seeder.lstAdds.Count;
+                var id = InitData.lstAdds.Count;
                 CreateAdd objAdd = new CreateAdd();
                 objAdd.AgeGroup = value.AgeGroup;
                 objAdd.AgeGroupRange = value.AgeGroupRange;
@@ -63,7 +63,7 @@ namespace WebApiSample.Controllers
                 objAdd.URL = value.URL;
                 objAdd.RegionName = value.RegionName;
                 objAdd.ID = id + 1;
-                Seeder.lstAdds.Add(objAdd);
+                InitData.lstAdds.Add(objAdd);
 
                 return ("ok").ToUpper();
             }
