@@ -62,7 +62,7 @@ namespace WebApiSample.Controllers
             objAdd.ID = id + 1;
             InitData.lstAdds.Add(objAdd);
 
-            return Json("ok");
+            return Json("OK");
         }
         [Route("[action]")]
         public List<CreateAdd> getUrlNames()
@@ -78,7 +78,7 @@ namespace WebApiSample.Controllers
             {
                 Product[0].Views = Product[0].Views + 1;
             }
-            return "ok";
+            return "OK";
         }
 
         [Route("[action]/{id}")]
