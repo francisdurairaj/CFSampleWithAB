@@ -8,8 +8,7 @@ install:
 script:
   - cd src/WebApiSample/  && dnu build
   - cd - && cd src/CFSampleWithAB.XUnit/ && dnu restore
-  - dnx test
-  - exit 0
+  - dnx test && exit 0
 after_success:
   - deploy:
      edge: true
