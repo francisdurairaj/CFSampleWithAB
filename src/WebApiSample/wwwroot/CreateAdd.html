@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title></title>
@@ -70,16 +70,16 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-1">
+                <div class="col-lg-3 col-md-6 col-sm-1">
                     <label for="txtDevice"> Device: </label>
                     <input type="text" id="txtDevice" class="form-control" />
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-1">
+                <div class="col-lg-3 col-md-6 col-sm-1">
 
                     <label for="txtBrowser"> Browser: </label>
                     <input type="text" id="txtBrowser" class="form-control" />
                 </div>
-                <div class="col-lg-6 col-md-4 col-sm-1">
+                <div class="col-lg-6 col-md-0 col-sm-1">
 
                 </div>
             </div>
@@ -162,36 +162,41 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-8 col-md-6 col-sm-1">
-
-                    <button id="btnSave" class="btn btn-primary btn-lg" style="margin-top:10px">Save</button>
+                <div class="col-lg-3 col-md-2 col-sm-1">
+                    <label for="txtAddDesc"> Model Description: </label>
+                    <input type="text" id="txtAddDesc" class="form-control" />
                 </div>
-                <div class="col-lg-4 col-md-8 col-sm-1">
-
+                <div class="col-lg-3 col-md-3 col-sm-1">
+                    <button id="btnSave" class="btn btn-primary btn-block" style="margin-top:20px">Save</button>
+                </div>
+                <div class="col-lg-6 col-md-7 col-sm-1">
+                   
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <p class="text-primary">Add Details</p>
-        <div class="col-lg-10 col-md-10 col-sm-1">
-            <table id="tblAddItems" class="table table-striped table-responsive table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>URL</th>
-                        <th>Age </th>
-                        <th>Gender</th>
-                        <th>Region</th>
-                        <th>Browser</th>
-                        <th>Device</th>
+    <div class="panel  panel-primary">
+        <div class="panel-heading">Advertisement Details</div>
+        <div class="panel-body">
+            <div class="table-responsive img-rounded">
+                <table id="tblAddItems" class="table table-striped table-bordered">
+                    <thead>
+                        <tr class="bg-info">
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Age </th>
+                            <th>Gender</th>
+                            <th>Region</th>
+                            <th>Browser</th>
+                            <th>Device</th>
 
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
-    </div>
+        </div>
 </body>
 </html>
 <script>
@@ -204,8 +209,10 @@
         var regionName=$("#txtRegion option:selected").text().trim();
         var Device = $("#txtDevice").val().trim();
         var Browser = $("#txtBrowser").val().trim();
+        var AddDesc = $("#txtAddDesc").val().trim();
         var URL = $("#txtProductURL").val() + "&AgeGroup=" + AgeGroup + "&Gender=" + Gender + "&Region=" + Region + "&Device=" + Device + "&Browser=" + Browser;
         if (AgeGroup.length > 0 && Gender.length > 0 && Region.length > 0 && Device.length > 0 && Browser.length > 0 && URL.length>0) {
+            $("#dvError").html("");
             var data = {
                 AgeGroup: AgeGroup,
                 AgeGroupRange: AgeGroupRange,
@@ -214,7 +221,8 @@
                 Device: Device,
                 Browser: Browser,
                 RegionName: regionName,
-                URL: URL
+                URL: URL,
+                AddDesc: AddDesc
             }
 
             //alert("Age!!" + data);
@@ -266,15 +274,17 @@
             $.each(msg, function (i, obj) {
                 var sURL = msg[i].URL;
                 var sID = msg[i].ID;
+                var sAddDesc = msg[i].AddDesc;
                 var sAgeGroupRange = msg[i].AgeGroupRange;
                 var sGender = msg[i].Gender;
                 var sRegion = msg[i].RegionName;
                 var sBrowser = msg[i].Browser;
                 var sDevice = msg[i].Device;
+                var extraClass = i % 2 == 0 ? "active" : "warning";
                 $("#tblAddItems").append(
-                    "<tr>" +
+                    "<tr class=" + extraClass + ">" +
                      " <td>" + sID + "</td>" +
-                   " <td>" + sURL + "</td>" +
+                   " <td><a href='Products.html'>" + sURL + "</a></td>" +
                     " <td>" + sAgeGroupRange + "</td>" +
                      " <td>" + sGender + "</td>" +
                       " <td>" + sRegion + "</td>" +
