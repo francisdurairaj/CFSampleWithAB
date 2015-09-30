@@ -43,6 +43,11 @@
             align-content: center;
             margin-left: 280px;
         }
+        img.thbImg
+		{
+			height: 220px;
+			width: 242px
+		}
     </style>
     <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
     <link href="css/menustyles.css" rel="stylesheet" type="text/css" />
@@ -57,7 +62,7 @@
     <link rel="stylesheet" type="text/css" href="css/et-icons.css">
     <link rel="stylesheet" type="text/css" href="css/tooltip.css">
     <link rel="stylesheet" type="text/css" href="css/lightbox.css">
-    <link id="main" rel="stylesheet" type="text/css" href="css/publisher.css">
+    <!--<link id="main" rel="stylesheet" type="text/css" href="css/publisher.css">-->
 
     <script src="scripts/bootstrap.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
@@ -87,11 +92,49 @@
                 <li class='last'><a href='#'><span>Contact</span></a></li>
             </ul>
         </div>
-        <div id="views"  class="container">
+        <div id="views" class="container">
         </div>
-            <div id="dvProds" class="panel panel-primary">
-            </div>          
-            
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <div id="dvProds" class="panel panel-primary">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img class="thbImg" src="images/I6_Black.jpeg" alt="">
+                    <div class="caption">
+                        <h3>iPhone 6s</h3>
+                        <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img class="thbImg" src="images/I6_White.jpeg" alt="">
+                    <div class="caption">
+                        <h3>iPhone 6s</h3>
+                        <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img class="thbImg" src="images/I6_Gold.jpg" alt="">
+                    <div class="caption">
+                        <h3>iPhone 6s</h3>
+                        <p>Model<br />iPhone 6s 4.7-inch display<br />From $649<br />$32.45/mo. with annual upgrade</p>
+                        <p><a href="#" class="btn btn-primary" role="button">Buy</a> <a href="#" class="btn btn-default" role="button">Details</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </form>
 </body>
 <script type="text/javascript">
@@ -119,6 +162,9 @@
         $.each(msg, function (i, obj) {
             // var details = msg[i].Make + "<br/>" + msg[i].Model + "<br/>" + msg[i].Color + "<br/>" + msg[i].Specs + "<br/>";
             var details = msg[i].Make + "&nbsp;&nbsp;" + msg[i].Model + "&nbsp;&nbsp;" + msg[i].Color + "&nbsp;&nbsp;" + msg[i].Specs + "&nbsp;&nbsp;";
+
+            //$('.thbImg').attr("src", msg[i].ImgPath);
+            //$('.thbImg').attr("data-view-name", msg[i].ID);
 
             $("#dvProds").append(
                 //"<tr>" +
