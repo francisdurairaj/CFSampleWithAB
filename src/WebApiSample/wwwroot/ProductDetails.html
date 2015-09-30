@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<head>
+    <title>Product Details</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <style>
+        #views {
+            font: 13px Arial;
+            width: 500px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+            #views div {
+                width: auto;
+                text-align: left;
+                margin: 1px;
+                padding: 2px 5px;
+                letter-spacing: 1px;
+            }
+        img.image
+		{
+			height: 250px;
+			width: 400px
+		}
+        .box
+        {
+            border: 1px solid #808080;
+            padding: 5px 5px;
+            margin: 5px 5px;
+            
+        }
+        #tblProductDetails{
+            
+            align-content: center;
+            margin-left: 400px;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+    <link href="css/menustyles.css" rel="stylesheet" type="text/css" />
+    <script src="Scripts/script.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/owl.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="css/et-icons.css">
+    <link rel="stylesheet" type="text/css" href="css/tooltip.css">
+    <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+    <link id="main" rel="stylesheet" type="text/css" href="css/publisher.css">
+
+
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id='cssmenu'>
+            <ul>
+                <li><a href='home.html'><span>Home</span></a></li>
+                <li class='has-sub'>
+                    <a href='#'><span>Admin</span></a>
+                    <ul>
+                        <li><a href='CreateAdd.html'><span>Create Add</span></a> </li>
+                        <li><a href='ActiveAdds.html'><span>Active Adds</span></a> </li>
+                    </ul>
+                </li>
+                <li><a href='Products.html'><span>Products</span></a></li>
+                <li class='has-sub'>
+                    <a href='#'><span>Reports</span></a>
+                    <ul>
+                        <li><a href='#'><span>State wise Analysis</span></a> </li>
+                    </ul>
+                </li>
+                <li class='last'><a href='#'><span>Contact</span></a></li>
+            </ul>
+        </div>
+        <div id="views"  class="container">
+        </div>
+        <div class="box panel panel-primary" >
+            <table id="tblProductDetails"></table>
+        </div>
+    </form>
+</body>
+<script type="text/javascript">
+
+    function getData(ID) {
+
+        $('#views').empty();
+        $.ajax({
+            type: 'GET',
+            url: 'api/values/GetProductsDetails/' + ID,
+            async: true,
+            cache: false,
+            success: function (msg) {
+                PopulateProducts(msg);
+            },
+            error: function (a, b, c) {
+
+            }
+        });
+    }
+
+
+    function PopulateProducts(msg) {
+        $("#tblProductDetails").empty();
+        $.each(msg, function (i, obj) {
+            // var details = msg[i].Make + "<br/>" + msg[i].Model + "<br/>" + msg[i].Color + "<br/>" + msg[i].Specs + "<br/>";
+
+            $("#tblProductDetails").append(
+                "<tr>" +
+                    "<td colspan='2'><img class='image' src='" + msg[i].ImgPath + "' data-view-name='" + msg[i].ID + "'></img></td></tr>" +
+                    "<tr><td>Make</td><td>" + msg[i].Make + "</td></tr>" +
+                    "<tr><td>Model</td><td>" + msg[i].Model + "</td></tr>" +
+                    "<tr><td>Color</td><td>" + msg[i].Color + "</td></tr>" +
+                    "<tr><td>Specs</td><td>" + msg[i].Specs + "</td></tr>" +
+                    "<tr><td><a href='#'>" + msg[i].Description + "</a></td></tr>" +
+                     "<tr><td><input type='button'  value='Buy' class='btn btn-primary btn-lg' id='" + msg[i].ID + "'  data-view-name='" + msg[i].ID + "' title='Click here to buy'/></td><td>$639</td></tr>"
+             );
+        });
+    }
+
+    // Read a page's GET URL variables and return them as an associative array.
+    function getUrlVars() {
+        var vars = [], hash;
+        var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < hashes.length; i++) {
+            hash = hashes[i].split('=');
+            vars.push(hash[0]);
+            vars[hash[0]] = hash[1];
+        }
+        return vars;
+    }
+
+
+    $(document).ready(function () {
+
+        var ID = getUrlVars()["ID"];
+        getData(ID);      
+
+        $(document).on('click', '.btn', function () {
+            var ID = $(this).attr("data-view-name");
+            
+            $.ajax({
+                type: "get",
+                url: "api/values/UpdatePurchased/" + ID,
+                success: function (msg) {
+
+                    alert("Thanks for shoping in vzw.com.");
+                    window.location.replace("home.html");
+
+                },
+                error: function (x, e) {
+                    alert('Failed');
+                    alert(x.responseText);
+                    alert(x.status);
+                }
+            });
+        });
+
+
+
+
+
+    });
+
+
+</script>
+
+<script src="js/owl.carousel.js"></script>
+<script src="js/lightbox.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.onepagenav.js"></script>
+<script src="js/core.js"></script>
+<script src="js/tooltip.js"></script>
+<script src="js/jquery.form-validator.js"></script>
+<script src="js/preloader.js"></script>
+<script src="js/main.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</html>
