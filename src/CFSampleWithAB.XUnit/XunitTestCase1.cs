@@ -2,6 +2,7 @@
 using WebApiSample.InitializeData;
 using WebApiSample.Models;
 using Xunit;
+using WebApiSample.Initializer;
 namespace CFSampleWithAB.XUnit
 {
    
@@ -12,7 +13,7 @@ namespace CFSampleWithAB.XUnit
         {
             string result = "";
             ValuesController obj = new ValuesController();
-
+            Seeder.lstAdds = null;
             CreateAdd objAdd5 = new CreateAdd();
             objAdd5.ID = 5;
             objAdd5.AgeGroup = "45T65";
@@ -26,12 +27,13 @@ namespace CFSampleWithAB.XUnit
             objAdd5.ImageURL = "Images/16_Black.jpeg";
 
             result = obj.PostURL(objAdd5).ToString();
-            Assert.Equal("Error", result);
+            Assert.Equal("ERROR", result);
         }
         [Fact]
         public void CreateAddPass()
         {
             string result = "";
+              Seeder.lstAdds = null;
             ValuesController obj = new ValuesController();
             InitData.intialize();
             CreateAdd objAdd5 = new CreateAdd();
@@ -51,7 +53,7 @@ namespace CFSampleWithAB.XUnit
         }
         [Fact]
         public void GetAdd()
-        {            
+        {              Seeder.lstAdds = null;
             ValuesController obj = new ValuesController();
             InitData.intialize();
             Assert.NotNull(obj.getUrlNames());
@@ -60,17 +62,18 @@ namespace CFSampleWithAB.XUnit
         public void GetAddFail()
         {           
             ValuesController obj = new ValuesController();
-
+              Seeder.lstAdds = null;
             Assert.Null(obj.getUrlNames());
         }
         public void getProducts()
         {           
             ValuesController obj = new ValuesController();
-
+            Seeder.lstAdds = null;
             Assert.NotNull(obj.GetProducts());
         }
         public void getRegionAds()
         {
+             Seeder.lstAdds = null;
             ValuesController obj = new ValuesController();
             InitData.intialize();
             Assert.NotNull(obj.GetProductsDetails(1));
