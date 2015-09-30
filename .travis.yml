@@ -9,8 +9,7 @@ script:
   - cd src/WebApiSample/  && dnu build
   - cd - && cd src/CFSampleWithAB.XUnit/ && dnu restore
   - dnx test && exit 0
-after_success:
-  - deploy:
+deploy:
      edge: true
      provider: cloudfoundry
      username: jasonrdonald@yahoo.co.in
