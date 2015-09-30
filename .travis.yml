@@ -7,7 +7,7 @@ install:
   - dnu restore
 script:
   - cd src/WebApiSample/  && dnu build
-  - cd .. && cd src/CFSampleWithAB.XUnit/ && dnu restore
+  - cd - && cd src/CFSampleWithAB.XUnit/ && dnu restore
   - dnu test
 deploy:
    edge: true
