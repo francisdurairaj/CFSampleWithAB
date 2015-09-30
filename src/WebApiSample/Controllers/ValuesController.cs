@@ -46,23 +46,31 @@ namespace WebApiSample.Controllers
         }
 
         [Route("[action]")]
-        public JsonResult PostURL(CreateAdd value)
+        public string PostURL(CreateAdd value)
         {
-            var id = InitData.lstAdds.Count;
-            CreateAdd objAdd = new CreateAdd();
-            objAdd.AgeGroup = value.AgeGroup;
-            objAdd.AgeGroupRange = value.AgeGroupRange;
-            objAdd.ImageURL = "";
-            objAdd.Browser = value.Browser;
-            objAdd.Device = value.Device;
-            objAdd.Gender = value.Gender;
-            objAdd.Region = value.Region;
-            objAdd.URL = value.URL;
-            objAdd.RegionName = value.RegionName;
-            objAdd.ID = id + 1;
-            InitData.lstAdds.Add(objAdd);
+              try
+            {
+                var id = Seeder.lstAdds.Count;
+                CreateAdd objAdd = new CreateAdd();
+                objAdd.AgeGroup = value.AgeGroup;
+                objAdd.AgeGroupRange = value.AgeGroupRange;
+                objAdd.ImageURL = "";
+                objAdd.Browser = value.Browser;
+                objAdd.Device = value.Device;
+                objAdd.Gender = value.Gender;
+                objAdd.Region = value.Region;
+                objAdd.AddDesc = value.AddDesc;
+                objAdd.URL = value.URL;
+                objAdd.RegionName = value.RegionName;
+                objAdd.ID = id + 1;
+                Seeder.lstAdds.Add(objAdd);
 
-            return Json("OK");
+                return ("ok").ToUpper();
+            }
+            catch
+            {
+                return ("Error").ToUpper();
+            }
         }
         [Route("[action]")]
         public List<CreateAdd> getUrlNames()
