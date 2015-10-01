@@ -8,7 +8,7 @@ install:
 script:
   - cd src/WebApiSample/  && dnu build
   - cd - && cd src/CFSampleWithAB.XUnit/ && dnu restore
-  - dnx test && cd - && cd src/WebApiSample/ && dnu build
+  - dnx test -parallel none && cd src/WebApiSample/ && dnu build
 deploy:
      edge: true
      provider: cloudfoundry
